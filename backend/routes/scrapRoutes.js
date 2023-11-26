@@ -2,14 +2,12 @@ const express = reuire('express')
 
 const router = express.Router()
 
+// home page
 router.get('/', (req, res) => {
     res.json({mssg: 'home page'})
 })
 
-router.get('/schedule', (req, res) => {
-    res.json({mssg: 'schedule page'})
-})
-
+// scheduling form
 router.post('/schedule', (req, res) => {
     res.json({mssg: 'schedule page'})
 })

@@ -4,7 +4,7 @@ const scrapRoutes = require('./routes/scrapRoutes')
 
 const app = express()
 
-app.use(exprss.json())
+app.use(express.json())
 
 app.use('/api/scrap', scrapRoutes)
 
