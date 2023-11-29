@@ -1,11 +1,22 @@
 import Navbar from './components/Navbar';
 import './App.css';
-import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Bookings from './pages/Bookings';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <BrowserRouter>
+        <Navbar />
+        <div className="pages">
+          <Routes>
+            <Route 
+              path='/bookings'
+              element={<Bookings />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
