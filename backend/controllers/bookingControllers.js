@@ -23,17 +23,14 @@ const getOneBooking = async (req, res) => {
 }
 
 const createBooking = async (req, res) => {
-    const {vehicle,month,day,time,address} = req.body
+    const {vehicle,date,time,address} = req.body
     let emptyFields = []
 
     if (!vehicle) {
       emptyFields.push('vehicle')
     }
-    if (!month) {
-      emptyFields.push('month')
-    }
-    if (!day) {
-      emptyFields.push('day')
+    if (!date) {
+      emptyFields.push('date')
     }
     if(!time) {
         emptyFields.push('time')
@@ -46,7 +43,7 @@ const createBooking = async (req, res) => {
     }
 
     try {
-        const newBooking = await bookingModel.create({vehicle,month,day,time,address})
+        const newBooking = await bookingModel.create({vehicle,date,time,address})
         res.status(200).json(newBooking)
     } catch (error) {
         res.status(404).json({error: error.message})
