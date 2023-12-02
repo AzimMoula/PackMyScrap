@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BookingForm from "../components/BookingForm";
+import { useBookingsContext } from "../hooks/useBookingsContext";
 
 const Bookings = () => {
     
-    const [bookings,setBookings] = useState(null)
+    const { bookings,dispatch } = useBookingsContext()
 
     useEffect(() => {
     const fetchBookings = async () => {
@@ -15,27 +16,27 @@ const Bookings = () => {
             }
 
             const json = await response.json();
-            setBookings(json);
+            dispatch({type: 'SET_BOOKINGS', payload: json})
         } catch (error) {
             console.error('Error fetching bookings:', error);
         }
     };
 
     fetchBookings();
-}, []);
+}, [dispatch]);
 
     
     return (
         <div className="bookings">
-            <h1>BOOKINGS</h1>
-            <div>
+            <h1 className="heading">BOOKINGS</h1>
+            <div className="booking-details">
                 {bookings && bookings.map((booking) => (
                     <div key={booking._id}>
                         <h4>time of pickup: {booking.time}</h4>
                     </div>
                 ))}
             </div>
-            <BookingForm />
+            <BookingForm/>
         </div>
     );
 }
