@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 const bookingSchema = new Schema({
     // type of vehicle for pickup
-    vehicle: {
+    Material: {
         Type: String
     },
     // date & time of pickup

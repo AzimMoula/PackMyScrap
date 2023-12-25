@@ -1,6 +1,6 @@
 require('dotenv').config()
 const express = require('express')
-const scrapRoutes = require('./routes/scrapRoutes')
+const userRoutes = require('./routes/userRoutes')
 const bookingRoutes = require('./routes/bookingRoutes')
 const mongoose = require('mongoose')
 
@@ -8,7 +8,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use(scrapRoutes)
+app.use('/auth', userRoutes)
 
 app.use('/bookings', bookingRoutes)
 
@@ -22,4 +22,4 @@ mongoose.connect(process.env.MONGO_URI)
     })
     .catch((err) => {
         console.log(err)
-    }) 
+    })

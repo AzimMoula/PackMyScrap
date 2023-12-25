@@ -2,7 +2,7 @@ const bookingModel = require('../models/bookingModel')
 const mongoose = require('mongoose')
 
 const getBookings = async (req, res) => {
-    const bookings = await bookingModel.find({})
+    const bookings = await bookingModel.find({});
     res.json(bookings)
 }
 
@@ -23,11 +23,11 @@ const getOneBooking = async (req, res) => {
 }
 
 const createBooking = async (req, res) => {
-    const {vehicle,date,time,address} = req.body
+    const {Material,date,time,address} = req.body
     let emptyFields = []
 
-    if (!vehicle) {
-      emptyFields.push('vehicle')
+    if (!Material) {
+      emptyFields.push('Material')
     }
     if (!date) {
       emptyFields.push('date')
@@ -43,7 +43,7 @@ const createBooking = async (req, res) => {
     }
 
     try {
-        const newBooking = await bookingModel.create({vehicle,date,time,address})
+        const newBooking = await bookingModel.create({Material,date,time,address})
         res.status(200).json(newBooking)
     } catch (error) {
         res.status(404).json({error: error.message})
