@@ -1,74 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@500&display=swap');
 
 *{
   margin: 0px;
   padding: 0px;
   font-family: "Poppins", sans-serif;
-}
-
-img{
-  width: 20px;
-  height: 20px;
-}
-
-li{
   list-style: none;
+  text-decoration: none;
+}
+
+html{
+  height: 100%;
+  background-color: #dfdfdf;
+}
+
+.App{
+  display: grid;
+  grid-template-areas: 
+    "nav"
+    "pages";
+  grid-template-rows: 1fr 100%;
+  height: 100%;
 }
 
 .navbar{
-  display: flex;
-  padding: 2vh 2vw 2vh 2vw;
-  justify-content: space-between;
-  border-bottom: 1px;
-  background-color: #5cdb95;
-}
-
-.nav-right{
-  display: flex;
-  gap: 2vw;
-  background-color: #5cdb95;
-}
-
-.nav-elements{
-  float: left;
-  font-weight: 800;
-  color: #03456B;
-}
-
-.nav-elements:hover{
-  cursor: pointer;
+  display: grid;
+  grid-area: nav;
+  grid-template-columns: 1fr 0.3fr 1fr;
 }
 
 .nav-left{
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2vw;
-  background-color: #5cdb95;
 }
 
-.nav-sign{
-  float: left;
-  font-weight: 800;
-  color: #5cdb95;
-  background-color: #03456B;
-  padding: 5px 10px 5px 10px;
+.nav-right{
+  display: flex;
+  justify-content: center;
+  grid-column: 3/4;
 }
 
-.nav-sign:hover{
-  transition-duration: 0.5s;
+.navL-items{
+  padding: 7px 10px;
+  margin: 7px;
+}
+
+.logo{
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  font-weight: 900;
+  font-size: x-large;
+  color: #00c056;
+  grid-column: 2/3;
+}
+
+.navR-items{
+  padding: 7px 10px;
+  margin: 7px;
+  color: #00c056;
   border-radius: 30px;
+  border: 2px solid #00c056;
+  background-color: #ffffff;
+  transition: background-color 0.3s,color 0.3s;
+}
+
+.navR-items:hover{
+  transition: all 0.3s;
+  background-color: #00c056;
+  color: #ebebeb;
   cursor: pointer;
 }
 
-.menu{
+.logout{
+  background-color: white;
   display: flex;
-  align-self: center;
-  padding-right: 2vw;
+  align-items: center;
+  border-radius: 25px;
+  margin: 7px;
 }
 
-.body{
+.nav-right p{
+  padding: 0 13px;
+}
+
+.navL-items:hover{
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #00c056;
+  box-shadow: 0px 5px 0px 0px #00c056;
+}
+
+.pages{
+  display: flex;
+  justify-content: center;
+  grid-area: pages;
+  margin: 4vw 16%;
+  padding: 0 4%;
+  height: 100%;
+}
+
+.heading{
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  background-color: #5cdb95;
+  grid-template-columns: 1fr 1fr;
+  background-color: white;
+}
+
+.newBook{
+  display: flex;
+  justify-self: end;
+  align-items: center;
+  background-color: #00c056;
+  border: none;
+  padding: 0px 15px;
+  border-radius: 15px;
+}
+
+.newBook p{
+  padding: 0px 10px;
+  color: white;
+  font-size: 117%;
+}
+
+.newBook svg:hover{
+  transition: all 0.3s;
+  transform: rotate(90deg);
+}
+
+.login-page{
+  display: grid;
+  grid-template-areas: "form img";
+  grid-template-columns: 1fr 1fr;
+  height: 70vh;
+  width: 700px;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: 2px 5px 10px 3px black;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+.login-labels{
+  padding: 5px;
+  height: 15px;
+  padding: 10px 0px;
+}
+
+.login-inputs{
+  padding: 3px;
+  height: 15px;
+  width: 75%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background-color: #dfdfdf;
+}
+
+.login-btn{
+  height: 30px;
+  width: 75%;
+  margin: 25px 0px;
+  border-radius: 7px;
+  border: none;
+  background-color: #00c056;
+  color: #dfdfdf;
+}
+
+.login-greet{
+  grid-column: 2/3;
+  grid-area: img;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom right, green, lightseagreen);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  backdrop-filter: blur(25px);
+  height: 100%;
+  border-left: 1px solid black;
+}
+
+.login{
+  display: flex;
+  align-self: center;  
+}
+
+hr{
+  border: 1px ridge black;
+  width: 50%;
 }

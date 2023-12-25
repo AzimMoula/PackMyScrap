@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BookingsContextProvider } from './context/BookingsContext';
-import { MenubarContextProvider } from './context/MenubarContext';
+import { AuthContextProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MenubarContextProvider>
+    <AuthContextProvider>
       <BookingsContextProvider>
         <App />
       </BookingsContextProvider>
-    </MenubarContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

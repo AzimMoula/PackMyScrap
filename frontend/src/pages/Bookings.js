@@ -28,11 +28,19 @@ const Bookings = () => {
     
     return (
         <div className="bookings">
-            <h1 className="heading">BOOKINGS</h1>
+            <div className="heading">
+                <h1>BOOKINGS</h1>
+                <button className="newBook">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224div8c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288div00c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                    <p>New</p>
+                </button>
+            </div>
             <div className="booking-details">
                 {bookings && bookings.map((booking) => (
-                    <div key={booking._id}>
-                        <h4>time of pickup: {booking.time}</h4>
+                    <div key={booking._id} className="booking-details">
+                        <h4>Pick-Up On: {booking.time}</h4>
+                        <strong>Address: {booking.address}</strong>
+                        <p>booking date: {booking.date}</p>
                     </div>
                 ))}
             </div>

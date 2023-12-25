@@ -38,15 +38,11 @@ const BookingForm = () => {
     }
 
     return ( 
-        <form className="booking" onSubmit={handleSubmit}>
-            <label>Vehicle:</label>
-            <input type="text" onChange={(e) => setVehicle(e.target.value)} value={vehicle}/>
-            <label>Date:</label>
-            <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
-            <label>Time:</label>
-            <input type="text" onChange={(e) => setTime(e.target.value+"")} value={time}/>
-            <label>Address:</label>
-            <input type="text" onChange={(e) => setAddress(e.target.value)} value={address}/>
+        <form className="bookform" onSubmit={handleSubmit}>
+            <input type="text" onChange={(e) => setVehicle(e.target.value)} value={vehicle} placeholder="material"/>
+            <input type="date" onChange={(e) => setDate(e.target.value)} value={date} placeholder="date"/>
+            <input type="text" onChange={(e) => setTime(e.target.value+"")} value={time} placeholder="time"/>
+            <input type="text" onChange={(e) => setAddress(e.target.value)} value={address} placeholder="address"/>
 
             <button>Submit</button>
             {error && <div className="error">{error}</div>}
