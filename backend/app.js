@@ -1,13 +1,25 @@
 require('dotenv').config()
 const express = require('express')
-const scrapRoutes = require('./routes/scrapRoutes')
+const userRoutes = require('./routes/userRoutes')
+const bookingRoutes = require('./routes/bookingRoutes')
+const mongoose = require('mongoose')
 
 const app = express()
 
 app.use(express.json())
 
-app.use('/api/scrap', scrapRoutes)
+app.use('/auth', userRoutes)
 
-app.listen(process.env.PORT, () => {
-    console.log("listening on port", process.env.PORT)
-})
+app.use('/bookings', bookingRoutes)
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('connected to database')
+        // listen to port
+        app.listen(process.env.PORT, () => {
+            console.log('listening for requests on port', process.env.PORT)
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
